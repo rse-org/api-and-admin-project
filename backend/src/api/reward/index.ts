@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/reward`,
+    require('./rewardCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/reward/:id`,
+    require('./rewardUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/reward/import`,
+    require('./rewardImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/reward`,
+    require('./rewardDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reward/autocomplete`,
+    require('./rewardAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reward`,
+    require('./rewardList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reward/:id`,
+    require('./rewardFind').default,
+  );
+};

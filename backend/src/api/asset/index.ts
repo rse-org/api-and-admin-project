@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/asset`,
+    require('./assetCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/asset/:id`,
+    require('./assetUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/asset/import`,
+    require('./assetImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/asset`,
+    require('./assetDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/asset/autocomplete`,
+    require('./assetAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/asset`,
+    require('./assetList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/asset/:id`,
+    require('./assetFind').default,
+  );
+};

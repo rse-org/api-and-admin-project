@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/transfer`,
+    require('./transferCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/transfer/:id`,
+    require('./transferUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/transfer/import`,
+    require('./transferImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/transfer`,
+    require('./transferDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/transfer/autocomplete`,
+    require('./transferAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/transfer`,
+    require('./transferList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/transfer/:id`,
+    require('./transferFind').default,
+  );
+};

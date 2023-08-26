@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/fund`,
+    require('./fundCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/fund/:id`,
+    require('./fundUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/fund/import`,
+    require('./fundImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/fund`,
+    require('./fundDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/fund/autocomplete`,
+    require('./fundAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/fund`,
+    require('./fundList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/fund/:id`,
+    require('./fundFind').default,
+  );
+};

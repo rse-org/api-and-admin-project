@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/investor`,
+    require('./investorCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/investor/:id`,
+    require('./investorUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/investor/import`,
+    require('./investorImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/investor`,
+    require('./investorDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/investor/autocomplete`,
+    require('./investorAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/investor`,
+    require('./investorList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/investor/:id`,
+    require('./investorFind').default,
+  );
+};
